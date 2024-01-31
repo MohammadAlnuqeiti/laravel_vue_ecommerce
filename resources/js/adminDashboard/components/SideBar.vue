@@ -154,6 +154,9 @@ function logout() {
 }
 </script>
 <style scoped>
+@import url(../../../../node_modules/bootstrap/dist/css/bootstrap.css);
+
+
 body {
     font-size: 0.875rem;
 }
@@ -216,7 +219,7 @@ svg {
     font-weight: bold;
 }
 li a {
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 5px;
 }

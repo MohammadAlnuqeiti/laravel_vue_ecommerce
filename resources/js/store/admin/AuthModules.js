@@ -7,16 +7,17 @@ export default {
             token: sessionStorage.getItem("TOKEN"),
             data: sessionStorage.getItem("USER"),
         },
+        notification: "",
     },
     getters: {},
     mutations: {
         setUser(state, user) {
             state.user.data = user;
             if (user) {
-                if(sessionStorage.getItem("USER")){
+                if (sessionStorage.getItem("USER")) {
                     sessionStorage.removeItem("USER");
                     sessionStorage.setItem("USER", JSON.stringify(user));
-                }else{
+                } else {
                     sessionStorage.setItem("USER", JSON.stringify(user));
                 }
             } else {
@@ -31,6 +32,9 @@ export default {
                 sessionStorage.removeItem("TOKEN");
             }
         },
+        setNotification(state, message) {
+            state.notification = message;
+        },
     },
     actions: {
         getCurrentUser({ commit }, data) {
@@ -41,7 +45,6 @@ export default {
         },
         login({ commit }, data) {
             return axiosClient.post("/login", data).then(({ data }) => {
-
                 commit("setUser", data.user);
                 commit("setToken", data.token);
                 return data;
@@ -55,7 +58,7 @@ export default {
                 return response;
             });
         },
-        editProfile({commit} , user){
+        editProfile({ commit }, user) {
             const id = user.id;
             if (user.image) {
                 const form = new FormData();
@@ -74,10 +77,8 @@ export default {
                     "Content-Type": "multipart/form-data",
                 },
             });
-
         },
-        changePassword({commit} , password){
-
+        changePassword({ commit }, password) {
             const id = password.id;
             password._method = "PUT";
 
@@ -86,7 +87,13 @@ export default {
                     "Content-Type": "multipart/form-data",
                 },
             });
+        },
+        async setNotification({ commit }, message) {
+            commit("setNotification", message);
 
+            setTimeout(() => {
+                commit("setNotification", "");
+            }, 5000);
         },
     },
 };

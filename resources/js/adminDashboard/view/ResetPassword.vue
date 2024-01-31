@@ -54,7 +54,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 div.go-back {
   display: flex;
   align-items: center;

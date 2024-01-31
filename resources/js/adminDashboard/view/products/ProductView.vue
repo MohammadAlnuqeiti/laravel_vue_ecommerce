@@ -426,11 +426,13 @@ function deleteProduct(product) {
     }
     store.dispatch("deleteProduct", product.id).then((res) => {
         // TODO Show notification
+        store.dispatch('setNotification' , "Product deleted successfully.")
         store.dispatch("getProducts");
     });
 }
 </script>
-<style>
+<style scoped>
+
 main {
     margin-top: 15px;
 }

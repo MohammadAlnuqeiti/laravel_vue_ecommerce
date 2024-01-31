@@ -38,7 +38,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 div.remember {
     display: flex;
     align-items: center;

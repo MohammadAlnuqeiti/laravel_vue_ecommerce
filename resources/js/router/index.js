@@ -15,6 +15,46 @@ const routes = [
                 name: "home",
                 component: () => import("../publicUser/view/HomeView.vue"),
             },
+            {
+                path: "/shop",
+                name: "shop",
+                component: () => import("../publicUser/view/ShopView.vue"),
+            },
+            {
+                path: "/product-details",
+                name: "productDetails",
+                component: () => import("../publicUser/view/ProductDetailsView.vue"),
+            },
+            {
+                path: "/cart",
+                name: "cart",
+                component: () => import("../publicUser/view/CartView.vue"),
+            },
+            {
+                path: "/empty-cart",
+                name: "emptyCart",
+                component: () => import("../publicUser/view/EmptyCart.vue"),
+            },
+            {
+                path: "/checkout",
+                name: "checkout",
+                component: () => import("../publicUser/view/CheckoutView.vue"),
+            },
+            {
+                path: "/login",
+                name: "login",
+                component: () => import("../publicUser/view/LoginView.vue"),
+            },
+            {
+                path: "/signup",
+                name: "signup",
+                component: () => import("../publicUser/view/SignupView.vue"),
+            },
+            {
+                path: "/my-profile",
+                name: "profile",
+                component: () => import("../publicUser/view/MyProfileView.vue"),
+            },
         ],
     },
     {

@@ -2,7 +2,7 @@
     <router-view></router-view>
 </template>
 
-<style>
+<style >
 :root {
     --tw-screen-sm: 640px;
     --tw-screen-md: 768px;

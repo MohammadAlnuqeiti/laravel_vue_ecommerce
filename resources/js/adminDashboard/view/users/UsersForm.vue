@@ -133,6 +133,7 @@ function onSubmit() {
             .then((response) => {
                 if (response.status === 201) {
                     // TODO show notification
+                    store.dispatch('setNotification' , "User updated successfully.")
                     router.push({ name: "users.view" });
                 }
             })
@@ -146,6 +147,7 @@ function onSubmit() {
             .then((response) => {
                 if (response.status === 201) {
                     // TODO show notification
+                    store.dispatch('setNotification' , "User created successfully.")
                     router.push({ name: "users.view" });
                 }
             })
@@ -157,7 +159,8 @@ function onSubmit() {
 }
 </script>
 
-<style>
+<style scoped>
+
 form {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;

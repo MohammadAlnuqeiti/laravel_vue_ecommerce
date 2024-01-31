@@ -160,11 +160,13 @@ const deleteUser = (user) => {
     }
     store.dispatch("deleteUser", user.id).then((res) => {
         // TODO Show notification
+        store.dispatch('setNotification' , "User deleted successfully.")
         store.dispatch("getUsers");
     });};
 </script>
 
 <style scoped>
+
 .bg-indigo-600 {
     background-color: #4f46e5;
     border-radius: 5px;

@@ -31,6 +31,11 @@
 </template>
 
 <style scoped>
+/* @import url(bootstrap/dist/css/bootstrap.css); */
+@import url(../../../../node_modules/bootstrap/dist/css/bootstrap.css);
+@import url('node_modules/bootstrap/dist/css/bootstrap.css');
+
+/* @import url(bootstrap); */
 /*
  * Navbar
  */

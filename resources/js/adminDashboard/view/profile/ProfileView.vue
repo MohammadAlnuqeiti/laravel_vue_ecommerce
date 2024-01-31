@@ -229,7 +229,12 @@ function onSubmit() {
         .then((response) => {
             if (response.status === 201) {
                 // TODO show notification
+                store.dispatch(
+                    "setNotification",
+                    "User updaeted successfully."
+                );
                 store.commit("setUser", response.data);
+                error.value = {};
                 router.push({ name: "profile.view" });
             }
         })
@@ -243,12 +248,24 @@ function changePassword() {
     store
         .dispatch("changePassword", password.value)
         .then((response) => {
-            if (response.status === 201) {
+            console.log(response);
+            if (response.status === 200) {
                 // TODO show notification
+
+                store.dispatch(
+                    "setNotification",
+                    "Password updated successfully."
+                );
+                error.value = {};
+                password.value = {
+                    old_password: "",
+                    password: "",
+                    password_confirmation: "",
+                };
                 router.push({ name: "profile.view" });
             }
             if (response.data.status === 400) {
-                error.value= {'old_password' : [response.data.message]}
+                error.value = { old_password: [response.data.message] };
             }
         })
         .catch((err) => {
@@ -257,9 +274,6 @@ function changePassword() {
 }
 </script>
 <style scoped>
-body {
-    background: rgb(99, 39, 120);
-}
 
 .form-control:focus {
     box-shadow: none;

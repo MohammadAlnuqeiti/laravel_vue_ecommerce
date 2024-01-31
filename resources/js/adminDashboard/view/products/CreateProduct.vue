@@ -140,6 +140,7 @@ function onSubmit() {
         store.dispatch("updateProduct", product.value).then((response) => {
             if (response.status === 200) {
                 // TODO show notification
+                store.dispatch('setNotification' , "Product updated successfully.")
                 router.push({ name: "products.view" });
             }
         });
@@ -149,6 +150,7 @@ function onSubmit() {
             .then((response) => {
                 if (response.status === 201) {
                     // TODO show notification
+                    store.dispatch('setNotification' , "Product created successfully.")
                     router.push({ name: "products.view" });
                 }
             })
@@ -160,7 +162,7 @@ function onSubmit() {
 }
 </script>
 
-<style>
+<style scoped>
 form {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;

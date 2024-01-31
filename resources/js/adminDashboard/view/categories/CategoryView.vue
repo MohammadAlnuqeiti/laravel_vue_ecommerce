@@ -436,13 +436,15 @@ function deleteCategory(category) {
     }
     store.dispatch("deleteCategory", category.id).then((res) => {
         // TODO Show notification
+        store.dispatch('setNotification' , "Category deleted successfully.")
         store.dispatch("getCategories");
     });
 }
 
 </script>
 
-<style>
+<style scoped>
+
 main {
     margin-top: 15px;
 }
