@@ -22,3 +22,8 @@ Route::get('/', function () {
 Route::any('/{any}' , function(){
     return view('app');
 })->where('any' , '.*');
+
+
+// use App\Http\Controllers\CookieController;
+// Route::get('/set-cookie', [CookieController::class, 'setCookie']);
+// Route::get('/get-cookie', [CookieController::class, 'getCookie']);

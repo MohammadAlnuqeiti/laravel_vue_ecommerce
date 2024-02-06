@@ -5,7 +5,7 @@ export default {
     state: {
         user: {
             token: sessionStorage.getItem("TOKEN"),
-            data: sessionStorage.getItem("USER"),
+            data: JSON.parse(sessionStorage.getItem("USER")),
         },
         notification: "",
     },

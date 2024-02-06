@@ -2,7 +2,7 @@
     <!-- Page Banner Section Start -->
     <div
         class="section page-banner-section"
-        style="background-image: url(assets/images/page-banner.jpg)"
+        style="background-image: url(assets/images/shop.png)"
     >
         <div class="container">
             <!-- Page Banner Content End -->

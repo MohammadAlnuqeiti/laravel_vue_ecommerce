@@ -35,7 +35,7 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->phone = $request->input('phone');
-        $user->password =  Hash::make($request->input('phone'));
+        $user->password =  Hash::make($request->input('password'));
         $user->is_admin = $request->input('is_admin');
 
         $imageName = Str::random() . '.' . $request->image->getClientOriginalExtension();

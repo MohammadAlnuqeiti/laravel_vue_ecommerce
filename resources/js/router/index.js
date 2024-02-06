@@ -21,7 +21,7 @@ const routes = [
                 component: () => import("../publicUser/view/ShopView.vue"),
             },
             {
-                path: "/product-details",
+                path: "/product-details/:id",
                 name: "productDetails",
                 component: () => import("../publicUser/view/ProductDetailsView.vue"),
             },
@@ -39,16 +39,25 @@ const routes = [
                 path: "/checkout",
                 name: "checkout",
                 component: () => import("../publicUser/view/CheckoutView.vue"),
+                meta: {
+                    requiresAuthUser: true,
+                },
             },
             {
                 path: "/login",
                 name: "login",
                 component: () => import("../publicUser/view/LoginView.vue"),
+                meta: {
+                    requiresGuestUser: true,
+                },
             },
             {
                 path: "/signup",
                 name: "signup",
                 component: () => import("../publicUser/view/SignupView.vue"),
+                meta: {
+                    requiresGuestUser: true,
+                },
             },
             {
                 path: "/my-profile",
@@ -177,7 +186,13 @@ router.beforeEach((to, from, next) => {
         next({ name: "AdminLogin" });
     } else if (to.meta.requiresGuest && store.state.AuthModules.user.token) {
         next({ name: "dashboard" });
-    } else {
+    } else if (to.meta.requiresAuth && store.state.AuthModules.user.data.is_admin == 0) {
+        next({ name: "home" });
+    }else if (to.meta.requiresGuestUser && store.state.AuthModules.user.token) {
+        next({ name: "home" });
+    } else if (to.meta.requiresAuthUser && !store.state.AuthModules.user.token) {
+        next({ name: "login" });
+    }else {
         next();
     }
 });

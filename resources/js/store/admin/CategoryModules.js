@@ -106,7 +106,7 @@ export default {
                 },
             });
         },
-        deleteProduct({ commit }, id) {
+        deleteCategory({ commit }, id) {
             return axiosClient.delete(`/categories/${id}`);
         },
     },

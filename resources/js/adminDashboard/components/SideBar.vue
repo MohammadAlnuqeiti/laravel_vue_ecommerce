@@ -223,4 +223,7 @@ li a {
     align-items: center;
     gap: 5px;
 }
+.router-link-exact-active {
+    color: #b00000 !important;
+}
 </style>

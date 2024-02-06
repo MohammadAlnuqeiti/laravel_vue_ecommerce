@@ -1,6 +1,6 @@
 <template>
   <!-- Page Banner Section Start -->
-  <div class="section page-banner-section" style="background-image: url(assets/images/page-banner.jpg);">
+  <div class="section page-banner-section" style="background-image: url(assets/images/cart_panner.png);">
         <div class="container">
 
             <!-- Page Banner Content End -->
@@ -127,7 +127,7 @@
                 <!-- Cart btn Start -->
                 <div class="cart-btn">
                     <div class="left-btn">
-                        <a href="shop-grid-left-sidebar.html" class="btn btn-dark btn-hover-primary">Continue Shopping</a>
+                        <router-link to="/shop" class="btn btn-dark btn-hover-primary">Continue Shopping</router-link>
                     </div>
                     <div class="right-btn">
                         <a href="#" class="btn btn-outline-dark">Clear Cart</a>
@@ -313,7 +313,7 @@
                             </table>
                         </div>
                         <div class="cart-total-btn">
-                            <a href="#" class="btn btn-dark btn-hover-primary btn-block">Proceed To Checkout</a>
+                            <router-link to="/checkout" class="btn btn-dark btn-hover-primary btn-block">Proceed To Checkout</router-link>
                         </div>
                     </div>
                     <!-- Cart Totals End -->
@@ -323,6 +323,19 @@
     </div>
     <!-- Shopping Cart Section End -->
 </template>
+
+<script setup>
+import { computed  , onMounted} from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+
+const store = useStore();
+const router = useRouter();
+
+onMounted(() => {
+    store.dispatch("getProductsAndCartItems");
+});
+</script>
 <style scoped>
 @import url(../../../../public/assets/css/style.css);
 

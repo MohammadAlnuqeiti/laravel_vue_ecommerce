@@ -122,7 +122,6 @@
 import { ref } from "vue";
 import { useStore } from 'vuex'
 import { useRouter } from "vue-router";
-// import { LockClosedIcon } from "@heroicons/vue";
 
 let loading = ref(false);
 let errorMsg = ref("");

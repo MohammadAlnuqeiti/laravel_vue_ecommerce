@@ -342,7 +342,7 @@
                             </RouterLink>
                             <button
                                 class="delete"
-                                @click="deleteCategoty(category)"
+                                @click="deleteCategory(category)"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
